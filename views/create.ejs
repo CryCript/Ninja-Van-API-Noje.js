@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" style="font-size: 12px;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Create Order</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <%- include('component/header.ejs') %>
+
+        <div class="col" style="margin-top: 24px;margin-bottom: 24px;">
+            <form id="orderForm">
+            <div class="accordion accordion-flush" role="tablist" id="data">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#data .item-1" aria-expanded="true" aria-controls="data .item-1" style="background: var(--bs-dark-bg-subtle);font-weight: bold;">Request Services</button></h2>
+                    <div class="accordion-collapse collapse show item-1" role="tabpanel">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Type</span><select class="form-select" id="service_type" name="service_type" required="">
+                                            <option value="Parcel" selected="">Parcel</option>
+                                        </select></div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Level</span><select class="form-select" id="service_level" name="service_level" required="">
+                                            <option value="Standard" selected="">Standard</option>
+                                        </select></div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Req Tracking No</span><input class="form-control" id="requested_tracking_number" name="requested_tracking_number" type="number" value="987654321"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Merchant Order</span><input class="form-control" id="merchant_order_number" name="merchant_order_number" type="text" value="SHIP-9876-54321"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#data .item-2" aria-expanded="true" aria-controls="data .item-2" style="background: var(--bs-dark-bg-subtle);font-weight: bold;">From</button></h2>
+                    <div class="accordion-collapse collapse show item-2" role="tabpanel">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Name</span><input class="form-control" type="text" id="name_from" required="" value="Wijaya" name="name_from"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Phone</span><input class="form-control" type="tel" id="phone_number_from" required="" value="628123456789" name="phone_number_from"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Email</span><input class="form-control" type="email" id="email_from" value="wijaya@mail.com" name="email_from"></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address</span><textarea class="form-control" id="address1_from" name="address1_from">Jl R1 No 38A</textarea></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address</span><textarea class="form-control" id="address2_from" name="address2_from">Kebon Baru</textarea></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Area</span><input class="form-control" type="text" id="area_from" value="Tebet" name="area_from"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">City</span><input class="form-control" type="text" id="city_from" value="Jakarta Selatan" name="city_from"></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">State</span><input class="form-control" type="text" id="state_from" value="DKI Jakarta" name="state_from"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address Type</span><input class="form-control" type="text" id="address_type_from" value="Home" name="address_type_from"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Country</span><input class="form-control" type="text" id="country_from" value="ID" name="country_from"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Post Code</span><input class="form-control" type="text" id="postcode_from" value="12830" name="postcode_from"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#data .item-3" aria-expanded="true" aria-controls="data .item-3" style="background: var(--bs-dark-bg-subtle);font-weight: bold;">To</button></h2>
+                    <div class="accordion-collapse collapse show item-3" role="tabpanel">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Name</span><input class="form-control" type="text" id="name_to" required="" value="Kusumah" name="name_to"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Phone</span><input class="form-control" type="tel" id="phone_number_to" required="" value="628987654321" name="phone_number_to"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Email</span><input class="form-control" type="email" id="email_to" value="kusumah@mail.com" name="email_to"></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address</span><textarea class="form-control" id="address1_to" name="address1_to">Jl Raya Kiarapedes</textarea></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address</span><textarea class="form-control" id="address2_to" name="address2_to">RT 12/04</textarea></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Area</span><input class="form-control" type="text" id="area_to" value="Kiarapedes" name="area_to"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">City</span><input class="form-control" type="text" id="city_to" value="Purwakarta" name="city_to"></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">State</span><input class="form-control" type="text" id="state_to" value="Jawa Barat" name="state_to"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address Type</span><input class="form-control" type="text" id="address_type_to" value="Office" name="address_type_to"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Country</span><input class="form-control" type="text" id="country_to" value="ID" name="country_to"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Post Code</span><input class="form-control" type="text" id="postcode_to" value="41175" name="postcode_to"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#data .item-4" aria-expanded="true" aria-controls="data .item-4" style="background: var(--bs-dark-bg-subtle);font-weight: bold;">Parcel Job</button></h2>
+                    <div class="accordion-collapse collapse show item-4" role="tabpanel">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup</span><select class="form-select" id="is_pickup_required" name="is_pickup_required">
+                                            <option value="True" selected="">Yes</option>
+                                            <option value="False">No</option>
+                                        </select></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Address ID</span><input class="form-control" type="tel" id="pickup_address_id" required="" value="98989012" name="pickup_address_id"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Service Type</span><select class="form-select" id="pickup_service_type" name="pickup_service_type">
+                                            <option value="Scheduled" selected="">Scheduled</option>
+                                        </select></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Service Level</span><select class="form-select" id="pickup_service_level" name="pickup_service_level">
+                                            <option value="Standard" selected="">Standard</option>
+                                        </select></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Date</span><input class="form-control" id="pickup_date" type="date" value="2023-10-30" name="pickup_date"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Timeslot</span><input class="form-control" id="start_time" type="time" value="09:00" style="width: 20%;" name="start_time"><label class="form-label input-group-text" style="width: 3%;">-</label><input class="form-control" id="end_time" type="time" value="12:00" style="width: 20%;" name="end_time"><select class="form-select" id="timezone" name="timezone">
+                                            <option value="Asia/Jakarta" selected="">Asia/Jakarta</option>
+                                        </select></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Instruction</span><textarea class="form-control" id="pickup_instructions" name="pickup_instructions">Pickup with care!</textarea></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Delivery Start Date</span><input class="form-control" id="delivery_start_date" type="date" value="2023-11-10" name="delivery_start_date"></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Delivery Timeslot</span><input class="form-control" id="start_time" type="time" value="09:00" style="width: 20%;" name="start_time"><label class="form-label input-group-text" style="width: 3%;">-</label><input class="form-control" id="end_time" type="time" value="12:00" style="width: 20%;" name="end_time"><select class="form-select" id="timezone" name="timezone">
+                                            <option value="Asia/Jakarta" selected="">Asia/Jakarta</option>
+                                        </select></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Delivery Instruction</span><textarea class="form-control" id="delivery_instructions" name="delivery_instructions">If recipient is not around, leave parcel in power riser.</textarea></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#data .item-5" aria-expanded="true" aria-controls="data .item-5" style="background: var(--bs-dark-bg-subtle);font-weight: bold;">Details Items</button></h2>
+                    <div class="accordion-collapse collapse show item-5" role="tabpanel">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Weight</span><input class="form-control" type="number" id="weight" value="6" name="weight"><span class="input-group-text" style="width: 10%;">Kg</span></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Quantity</span><input class="form-control" type="number" id="quantity" value="6" name="quantity"><span class="input-group-text" style="width: 10%;">Pcs</span></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Item Description</span><textarea class="form-control" id="item_description" name="item_description">Sample description</textarea></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Dangerous Good</span><select class="form-select" name="is_dangerous_good" id="is_dangerous_good">
+                                            <option value="False" selected="">No</option>
+                                            <option value="True">Yes</option>
+                                        </select></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><button class="btn btn-primary" onclick="createOrder()" type="button" style="width: 100%;margin-top: 12px;">Create Order</button>
+        </form>
+        </div>
+
+        <%- include('component/footer.ejs') %>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function createOrder() {
+        // Ambil data dari form
+        const serviceType = document.getElementById("service_type").value;
+        const serviceLevel = document.getElementById("service_level").value;
+        const reqTrackingNumber = document.getElementById("requested_tracking_number").value;
+        const merchantOrderNumber = document.getElementById("merchant_order_number").value;
+
+        const fromName = document.getElementById("name_from").value;
+        const fromPhoneNumber = document.getElementById("phone_number_from").value;
+        const fromEmail = document.getElementById("email_from").value;
+        const fromAddress1 = document.getElementById("address1_from").value;
+        const fromAddress2 = document.getElementById("address2_from").value;
+        const areaFrom = document.getElementById("area_from").value;
+        const cityFrom = document.getElementById("city_from").value;
+        const stateFrom = document.getElementById("state_from").value;
+        const addressTypeFrom = document.getElementById("address_type_from").value;
+        const countryFrom = document.getElementById("country_from").value;
+        const postcodeFrom = document.getElementById("postcode_from").value;
+
+        const toName = document.getElementById("name_to").value;
+        const toPhoneNumber = document.getElementById("phone_number_to").value;
+        const toEmail = document.getElementById("email_to").value;
+        const toAddress1 = document.getElementById("address1_to").value;
+        const toAddress2 = document.getElementById("address2_to").value;
+        const areaTo = document.getElementById("area_to").value;
+        const cityTo = document.getElementById("city_to").value;
+        const stateTo = document.getElementById("state_to").value;
+        const addressTypeTo = document.getElementById("address_type_to").value;
+        const countryTo = document.getElementById("country_to").value;
+        const postcodeTo = document.getElementById("postcode_to").value;
+
+        const isPickupRequiredString = document.getElementById("is_pickup_required").value;
+        const isPickupRequired = isPickupRequiredString === "True";
+        const pickupAddressId = document.getElementById("pickup_address_id").value;
+        const pickupServiceType = document.getElementById("pickup_service_type").value;
+        const pickupServiceLevel = document.getElementById("pickup_service_level").value;
+        const pickupDate = document.getElementById("pickup_date").value;
+        const pickupStartTime = document.getElementById("start_time").value;
+        const pickupEndTime = document.getElementById("end_time").value;
+        const pickupTimezone = document.getElementById("timezone").value;
+        const pickupInstructions = document.getElementById("pickup_instructions").value;
+
+        const deliveryStartDate = document.getElementById("delivery_start_date").value;
+        const deliveryStartTime = document.getElementById("start_time").value;
+        const deliveryEndTime = document.getElementById("end_time").value;
+        const deliveryTimezone = document.getElementById("timezone").value;
+        const deliveryInstructions = document.getElementById("delivery_instructions").value;
+
+        const weightString = document.getElementById("weight").value;
+        const weight = parseFloat(weightString);
+        const quantityString = document.getElementById("quantity").value;
+        const quantity = parseInt(quantityString, 10);
+        const itemDescription = document.getElementById("item_description").value;
+        const isDangerousGoodString = document.getElementById("is_dangerous_good").value;
+        const isDangerousGood = isDangerousGoodString === "True";
+
+        // Data akan dikirim ke backend
+        const orderData = {
+            "requested_tracking_number": reqTrackingNumber,
+            "service_type": serviceType,
+            "service_level": serviceLevel,
+            "reference": {
+                "merchant_order_number": merchantOrderNumber
+            },
+            "from": {
+            "name": fromName,
+            "phone_number": fromPhoneNumber,
+            "email": fromEmail,
+            "address": {
+                "address1": fromAddress1,
+                "address2": fromAddress2,
+                "area": areaFrom,
+                "city": cityFrom,
+                "state": stateFrom,
+                "address_type": addressTypeFrom,
+                "country": countryFrom,
+                "postcode": postcodeFrom
+            }
+            },
+            "to": {
+            "name": toName,
+            "phone_number": toPhoneNumber,
+            "email": toEmail,
+            "address": {
+                "address1": toAddress1,
+                "address2": toAddress2,
+                "area": areaTo,
+                "city": cityTo,
+                "state": stateTo,
+                "address_type": addressTypeTo,
+                "country": countryTo,
+                "postcode": postcodeTo
+            }
+            },
+            "parcel_job": {
+            "is_pickup_required": isPickupRequired,
+            "pickup_service_type": pickupServiceType,
+            "pickup_service_level": pickupServiceLevel,
+            "pickup_address_id": pickupAddressId,
+            "pickup_date": pickupDate,
+            "pickup_timeslot": {
+                "start_time": pickupStartTime,
+                "end_time": pickupEndTime,
+                "timezone": pickupTimezone
+            },
+            "pickup_instructions": pickupInstructions,
+            "delivery_start_date": deliveryStartDate,
+            "delivery_timeslot": {
+                "start_time": deliveryStartTime,
+                "end_time": deliveryEndTime,
+                "timezone": deliveryTimezone
+            },
+            "delivery_instructions": deliveryInstructions,
+            "dimensions": {
+                "weight": weight
+            },
+            "items": [
+                {
+                "item_description": itemDescription,
+                "quantity": quantity,
+                "is_dangerous_good": isDangerousGood
+                }
+            ]
+            }
+        };
+
+        console.log('Data:', orderData);
+
+        // Kirim data ke backend
+        fetch('/createOrder', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Pesanan berhasil dibuat:', data);
+        })
+        .catch(error => {
+            console.error('Gagal membuat pesanan frontend:', error);
+        });
+        }
+
+    </script>
+</body>
+
+</html>

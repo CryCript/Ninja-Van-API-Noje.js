@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" style="font-size: 12px;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>View Order</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <%- include('component/header.ejs') %>
+
+        <div class="col" style="margin-top: 24px;margin-bottom: 24px;">
+            <p style="text-align: center;font-size: 16px;font-weight: bold;margin-bottom: 24px;"><span style="font-weight: normal !important;">Detail order</span><br /><%= orderData.tracking_number %></p>
+            <div class="accordion accordion-flush" role="tablist" id="data">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#data .item-1" aria-expanded="true" aria-controls="data .item-1" style="background: var(--bs-dark-bg-subtle);font-weight: bold;">Request Services</button></h2>
+                    <div class="accordion-collapse collapse show item-1" role="tabpanel">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Status</span><input class="form-control" style="background-color: rgb(214, 246, 247);" id="status" name="status" type="text" value="<%= orderData.status %>" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Type</span><select class="form-select" id="service_type" name="service_type" required="" readonly>
+                                            <option value="Parcel" selected="">Parcel</option>
+                                        </select></div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Level</span><select class="form-select" id="service_level" name="service_level" required="" readonly>
+                                            <option value="Standard" selected="">Standard</option>
+                                        </select></div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Req Tracking No</span><input class="form-control" id="requested_tracking_number" name="requested_tracking_number" type="number" value="<%= orderData.requested_tracking_number %>" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Merchant Order</span><input class="form-control" id="merchant_order_number" name="merchant_order_number" type="text" value="<%= orderData.merchant_order_number %>" readonly></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#data .item-2" aria-expanded="true" aria-controls="data .item-2" style="background: var(--bs-dark-bg-subtle);font-weight: bold;">From</button></h2>
+                    <div class="accordion-collapse collapse show item-2" role="tabpanel">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Name</span><input class="form-control" type="text" id="name_from" required="" value="<%= orderData.from_name %>" name="name_from" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Phone</span><input class="form-control" type="tel" id="phone_number_from" required="" value="<%= orderData.from_phone_number %>" name="phone_number_from" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Email</span><input class="form-control" type="email" id="email_from" value="<%= orderData.from_email %>" name="email_from" readonly></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address</span><textarea class="form-control" id="address1_from" name="address1_from" readonly><%= orderData.from_address1 %></textarea></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address</span><textarea class="form-control" id="address2_from" name="address2_from" readonly><%= orderData.from_address2 %></textarea></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Area</span><input class="form-control" type="text" id="area_from" value="<%= orderData.from_area %>" name="area_from" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">City</span><input class="form-control" type="text" id="city_from" value="<%= orderData.from_city %>" name="city_from" readonly></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">State</span><input class="form-control" type="text" id="state_from" value="<%= orderData.from_state %>" name="state_from" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address Type</span><input class="form-control" type="text" id="address_type_from" value="<%= orderData.from_address_type %>" name="address_type_from" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Country</span><input class="form-control" type="text" id="country_from" value="<%= orderData.from_country %>" name="country_from" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Post Code</span><input class="form-control" type="text" id="postcode_from" value="<%= orderData.from_postcode %>" name="postcode_from" readonly></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#data .item-3" aria-expanded="true" aria-controls="data .item-3" style="background: var(--bs-dark-bg-subtle);font-weight: bold;">To</button></h2>
+                    <div class="accordion-collapse collapse show item-3" role="tabpanel">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Name</span><input class="form-control" type="text" id="name_to" required="" value="<%= orderData.to_name %>" name="name_to" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Phone</span><input class="form-control" type="tel" id="phone_number_to" required="" value="<%= orderData.to_phone_number %>" name="phone_number_to" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Email</span><input class="form-control" type="email" id="email_to" value="<%= orderData.to_email %>" name="email_to" readonly></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address</span><textarea class="form-control" id="address1_to" name="address1_to" readonly><%= orderData.to_address1 %></textarea></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address</span><textarea class="form-control" id="address2_to" name="address2_to" readonly><%= orderData.to_address2 %></textarea></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Area</span><input class="form-control" type="text" id="area_to" value="<%= orderData.to_area %>" name="area_to" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">City</span><input class="form-control" type="text" id="city_to" value="<%= orderData.to_city %>" name="city_to" readonly></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">State</span><input class="form-control" type="text" id="state_to" value="<%= orderData.to_state %>" name="state_to" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Address Type</span><input class="form-control" type="text" id="address_type_to" value="<%= orderData.to_address_type %>" name="address_type_to" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Country</span><input class="form-control" type="text" id="country_to" value="<%= orderData.to_country %>" name="country_to" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Post Code</span><input class="form-control" type="text" id="postcode_to" value="<%= orderData.to_postcode %>" name="postcode_to" readonly></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#data .item-4" aria-expanded="true" aria-controls="data .item-4" style="background: var(--bs-dark-bg-subtle);font-weight: bold;">Parcel Job</button></h2>
+                    <div class="accordion-collapse collapse show item-4" role="tabpanel">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup</span><select class="form-select" id="is_pickup_required" name="is_pickup_required">
+                                            <option value="True" selected="">Yes</option>
+                                            <option value="False">No</option>
+                                        </select></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Address ID</span><input class="form-control" type="tel" id="pickup_address_id" required="" value="<%= orderData.pickup_address_id %>" name="pickup_address_id" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Service Type</span><select class="form-select" id="pickup_service_type" name="pickup_service_type" readonly>
+                                            <option value="Scheduled" selected="">Scheduled</option>
+                                        </select></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Service Level</span><select class="form-select" id="pickup_service_level" name="pickup_service_level" readonly>
+                                            <option value="Standard" selected="">Standard</option>
+                                        </select></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Date</span><input class="form-control" id="pickup_date" type="date" value="<%= orderData.pickup_date %>" name="pickup_date" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Timeslot</span><input class="form-control" id="start_time" type="time" value="<%= orderData.pickup_start_time %>" style="width: 20%;" name="start_time" readonly><label class="form-label input-group-text" style="width: 3%;">-</label><input class="form-control" id="end_time" type="time" value="<%= orderData.pickup_end_time %>" style="width: 20%;" name="end_time" readonly><select class="form-select" id="timezone" name="timezone" readonly>
+                                            <option value="Asia/Jakarta" selected="">Asia/Jakarta</option>
+                                        </select></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Pickup Instruction</span><textarea class="form-control" id="pickup_instructions" name="pickup_instructions" readonly><%= orderData.pickup_instructions %></textarea></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Delivery Start Date</span><input class="form-control" id="delivery_start_date" type="date" value="<%= orderData.delivery_start_date %>" name="delivery_start_date" readonly></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Delivery Timeslot</span><input class="form-control" id="start_time" type="time" value="<%= orderData.delivery_start_time %>" style="width: 20%;" name="start_time" readonly><label class="form-label input-group-text" style="width: 3%;">-</label><input class="form-control" id="end_time" type="time" value="<%= orderData.delivery_end_time %>" style="width: 20%;" name="end_time" readonly><select class="form-select" id="timezone" name="timezone" readonly>
+                                            <option value="Asia/Jakarta" selected="">Asia/Jakarta</option>
+                                        </select></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Delivery Instruction</span><textarea class="form-control" id="delivery_instructions" name="delivery_instructions" readonly><%= orderData.delivery_instructions %></textarea></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#data .item-5" aria-expanded="true" aria-controls="data .item-5" style="background: var(--bs-dark-bg-subtle);font-weight: bold;">Details Items</button></h2>
+                    <div class="accordion-collapse collapse show item-5" role="tabpanel">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Weight</span><input class="form-control" type="number" id="weight" value="<%= orderData.parcel_weight %>" name="weight"><span class="input-group-text" style="width: 10%;" readonly>Kg</span></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Quantity</span><input class="form-control" type="number" id="quantity" value="<%= orderData.item_quantity %>" name="quantity"><span class="input-group-text" style="width: 10%;" readonly>Pcs</span></div>
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Item Description</span><textarea class="form-control" id="item_description" name="item_description" readonly><%= orderData.item_description %></textarea></div>
+                                </div>
+                                <div class="col-12 col-lg-4 gap-2">
+                                    <div class="input-group" style="margin-bottom: 8px;"><span class="input-group-text" style="width: 40%;">Dangerous Good</span><select class="form-select" name="is_dangerous_good" id="is_dangerous_good" readonly>
+                                            <option value="False" selected="">No</option>
+                                            <option value="True">Yes</option>
+                                        </select></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <%- include('component/footer.ejs') %>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+
+</html>

@@ -14,18 +14,18 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.json());
 
 const db = mysql.createPool({
-    host: 'srv118.niagahoster.com',
-    user: 'u1271038_dev',
-    password: 'Dream15031997,@',
-    database: 'u1271038_ninjavan',
+    host: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    user: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    password: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    database: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
   });
 
   const getAccessToken = async () => {
-    const client_id = '75692e7e9d994e74a5f7be2f7443a901';
-    const client_secret = '1479bca4f30b476e9dfabcd3c5ea6cb3';
+    const client_id = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx';
+    const client_secret = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
     const config = {
         headers: {
